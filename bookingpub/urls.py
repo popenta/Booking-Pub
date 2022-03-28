@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 from BookingPubApp import views
+from register import views as register_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('BookingPub/', include('BookingPubApp.urls'))
+    path('', include('BookingPubApp.urls')),
+    path("register/", register_views.register, name = "register")
 ]
