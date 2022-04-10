@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} Restaurants {% endblock %}
+
+{% block content %}
+
+<div>
+    <h1>{{r.name}}</h1>
+    
+    {% load static %}
+    <img src="{% static '' %}{{r.thumbnail}}" alt="Restaurant image" width="600" height="400">
+
+    <p>The address is {{r.address}}</p></br>
+    <h3>The number of busy tables is {{tables}}</h3>
+</div>
+
+{% endblock %}

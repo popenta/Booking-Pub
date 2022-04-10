@@ -4,5 +4,5 @@ from . import views
 urlpatterns = [
     path('', views.main_page),
     path('restaurants/', views.restaurants_page),
-    path('restaurants/' + '<int:id>', views.gogoasa)
+    path('restaurants/' + '<int:id>', views.single_restaurant_page)
 ]

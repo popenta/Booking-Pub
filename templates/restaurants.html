@@ -7,7 +7,7 @@
     {% for item in rest %}
         <div>
             {% load static %}
-            <a href="#">
+            <a href="/restaurants/{{item.id}}">
                 <div>
                     <img src="{% static '' %}{{item.thumbnail}}" alt="Restaurant image" width="600" height="400">
                     <p>{{item.name}}</p>
@@ -16,5 +16,4 @@
         </div>
     {% endfor %}
 
-    
 {% endblock %}
