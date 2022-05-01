@@ -41,7 +41,15 @@
 
                 {% if user.is_authenticated %}
                     <li class="nav-item active">
+                        <a class="nav-link" href="/edit-profile">Edit Profile <span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item active">
                         <a class="nav-link" href="/logout">Logout <span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item active">
+                        <p class="nav-link"> Hello {{ request.user.username }}</p>
                     </li>
                 {% endif %}
 

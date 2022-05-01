@@ -24,5 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('BookingPubApp.urls')),
     path("register/", register_views.register, name = "register"),
-    path('', include("django.contrib.auth.urls"))
+    path("edit-profile/", register_views.update_profile, name = "edit_profile"),
+    path('', include("django.contrib.auth.urls")),
+    path('password/', register_views.change_password, name="change_password")
 ]
