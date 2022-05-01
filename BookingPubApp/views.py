@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from BookingPubApp.models import Restaurant
 import random
 import keras
@@ -13,10 +14,12 @@ trained_model = keras.models.load_model("model_v1_1.h5")
 def main_page(request):
     return render(request, 'hello.html')
 
+
 def restaurants_page(request):
     restaurants = Restaurant.objects.all()
     return render(request, 'restaurants.html', {"rest" : restaurants})
 
+@login_required
 def single_restaurant_page(request, id):
     dictionar = {}
     restaurant = Restaurant.objects.get(id = id)

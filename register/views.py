@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from .forms import PassChangeForm, RegisterForm, EditForm
 from django.views.decorators.csrf import csrf_protect
 
@@ -17,6 +18,7 @@ def register(request):
     return render(request, "registration/register.html", {"form":form})
 
 
+@login_required
 def update_profile(request):
     if request.method == "POST":
         form = EditForm(request.POST, instance = request.user)
@@ -29,6 +31,7 @@ def update_profile(request):
     return render(request, "registration/edit_profile.html", {"form":form})
 
 
+@login_required
 def change_password(request):
     if request.method == 'POST':
         form = PassChangeForm(data = request.POST, user = request.user)
