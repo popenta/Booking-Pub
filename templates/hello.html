@@ -5,19 +5,25 @@
 
 {% block content %}
 
-<main role="main">
+    <div class="jumbotron-custom">
+        <div class="container container-display-flex calc-vh">
+            <div class="container-half">
+                <h1 class="display-4">Welcome to BookingPub!</h1>
+                    <p>
+                        BookingPub is a application where you can check in real time available tables at you favourite restaurants.
+                        You don't have a reservation? Check available tables right now!  
+                    </p>
+                <p><a class="btn btn-lg" href="register" role="button">Sign up!</a></p>
+                <p>Already a member? <a href="login" class="a-link">Login now!</a></p>
+            </div>
 
-    <div class="jumbotron">
-        <div class="container">
-            <h1 class="display-3">Welcome to BookingPub !</h1>
-            <p>BookingPub is a application where you can check in real time available tables at you favourite restaurants.<br>
-                You don't have a reservation? Check available tables right now!  
-            </p>
-            <p><a class="btn btn-primary btn-lg" href="register" role="button">Sign up!</a></p>
-            <p>Already a member? <a href="login">Login now!</a></p>
+            <div class="container-half">
+                {% load static %}
+                <img src="{% static 'illustration.svg' %}" alt="HomePage Illustration"/>
+            </div>
+
         </div>
     </div>
 
-</main>
 
 {% endblock %}

@@ -4,14 +4,27 @@
 
 {% block content %}
 
-<div>
-    <h1>{{r.name}}</h1>
-    
-    {% load static %}
-    <img src="{% static '' %}{{r.thumbnail}}" alt="Restaurant image" width="600" height="400">
+<div class="jumbotron-custom">
+    <div class="container calc-vh container-centered">
 
-    <p>The address is {{r.address}}</p></br>
-    <h3>The number of busy tables is {{tables}}</h3>
+        <h1 class="page-title-custom">{{r.name}}</h1>
+        
+        <div class = "container-display-flex">
+            <div class="container-half-big">
+                {% load static %}
+                <img src="{% static '' %}{{r.thumbnail}}" alt="Restaurant image">
+            </div>
+
+            <div class="container-half">
+                <label>Address:</label>
+                <p class="restaurant-address-p">{{r.address}}</p>
+                
+                <label>Busy Tables:</label>
+                <p class="restaurant-busy-p">The number of busy tables is <span>{{tables}}</span> </p>
+            </div>
+        </div>
+        
+    </div>
 </div>
 
 {% endblock %}

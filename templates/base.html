@@ -7,14 +7,17 @@
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 
     <title>{% block title %}{% endblock %}</title>
 </head>
 
 <body>
-    <div>
+    <div class="navbar-div">
     {% block navbar %}
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top nav-bg-custom">
         <a class="navbar-brand" href="/">BookingPub</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,14 +34,6 @@
                     <a class="nav-link" href="/restaurants">Restaurants <span class="sr-only">(current)</span></a>
                 </li>
                 
-                <li class="nav-item active">
-                    <a class="nav-link" href="/register">Register <span class="sr-only">(current)</span></a>
-                </li>
-                
-                <li class="nav-item active">
-                    <a class="nav-link" href="/login">Login <span class="sr-only">(current)</span></a>
-                </li>
-
                 {% if user.is_authenticated %}
                     <li class="nav-item active">
                         <a class="nav-link" href="/edit-profile">Edit Profile <span class="sr-only">(current)</span></a>
@@ -47,31 +42,39 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="/logout">Logout <span class="sr-only">(current)</span></a>
                     </li>
+                {% else %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/register">Register <span class="sr-only">(current)</span></a>
+                    </li>
                     
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/login">Login <span class="sr-only">(current)</span></a>
+                    </li>
                 {% endif %}
 
             </ul>
 
-            <span class="navbar-text text-white">
-                Welcome back, {{ request.user.username }}!
-            </span>
+            {% if user.is_authenticated %}
+                <span class="navbar-text text-white">
+                    Welcome back, {{ request.user.username }}!
+                </span>
+            {% endif %}
 
         </div>
     </nav>
     {% endblock %}
     </div>
 
-    <!--MODIFICA ASTA-->
-    <div style="padding-top: 65px;">
-        {% block content %}
-        {% endblock %}
-    </div>
+
+    {% block content %}
+    {% endblock %}
 
     {% block footer %}
-    <footer class="container row justify-content-center">
-        <p>&copy; Alex Popenta</p>
-    </footer>
+        <footer class="footer">
+            &copy; Alex Popenta
+        </footer>
     {% endblock %}
+ 
 
     <!-- JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

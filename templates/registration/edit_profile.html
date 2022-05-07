@@ -4,12 +4,20 @@
 {% load crispy_forms_tags %}
 
 {%block content %}
-    <h1>Edit Profile</h1>
-    </br>
-    
-    <form method="POST" class="form-group">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button type="submit" class="btn btn-success">Update</button>
-    </form>
+
+<div class="jumbotron-custom">
+
+    <div class="container calc-vh">
+        
+        <h1 class="padding-top text-center">Edit Profile</h1>
+            
+        <form method="POST" class="form-group">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-block w-50 mx-auto">Update</button>
+        </form>
+
+    </div>
+</div>
+
 {% endblock %}
