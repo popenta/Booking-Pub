@@ -49,5 +49,5 @@ def prediction(X_array, model):
         if value > 0.5:
             suma += 1
     
+    suma = 4 - suma
     return suma
-
